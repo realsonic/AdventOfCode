@@ -2,7 +2,7 @@
 
 public record CaloriesValue(uint Value) : IComparable<CaloriesValue>
 {
-    public static implicit operator long(CaloriesValue calories)
+    public static implicit operator uint(CaloriesValue calories)
         => calories.Value;
 
     public static implicit operator CaloriesValue(uint value)

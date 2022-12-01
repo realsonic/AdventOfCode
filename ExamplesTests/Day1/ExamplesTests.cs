@@ -35,17 +35,20 @@ public class ExamplesTests
     private readonly Solution solution = new(File.ReadLinesAsync(@"Day1\example.input.txt"));
 
     [Fact]
-    public async Task Test_Expedition()
+    public async Task TestExamplesAsync()
     {
         //Arrange
         uint puzzle1Result = uint.Parse(await File.ReadAllTextAsync(@"Day1\example.output1.txt"));
+        uint puzzle2Result = uint.Parse(await File.ReadAllTextAsync(@"Day1\example.output2.txt"));
         Expedition expedition = await Expedition.BuildExpeditionAsync(GetElvesAsync());
 
         //Act
-        CaloriesValue maxCaloriesPerElf = await expedition.MaxCaloriesPerElf;
+        CaloriesValue maxCaloriesPerElf = await expedition.MaxCaloriesPerElfTask;
+        CaloriesValue totalCaloriesFromTop3Elves = await expedition.TotalCaloriesFromTop3ElvesTask;
 
         //Assert
-        Assert.Equal(puzzle1Result, maxCaloriesPerElf);
+        Assert.Equal(puzzle1Result, (uint)maxCaloriesPerElf);
+        Assert.Equal(puzzle2Result, (uint)totalCaloriesFromTop3Elves);
     }
 
     private static async IAsyncEnumerable<Elf> GetElvesAsync()
@@ -75,7 +78,5 @@ public class ExamplesTests
     {
         await foreach (string record in File.ReadLinesAsync(@"Day1\example.input.txt"))
             yield return InputRecord.BuildFromString(record);
-
-        yield return new DelimiterRecord();
     }
 }

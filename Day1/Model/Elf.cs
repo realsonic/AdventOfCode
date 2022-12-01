@@ -3,7 +3,7 @@ public class Elf
 {
     public IReadOnlyList<Snack> Snacks { get; }
 
-    public Task<CaloriesValue> TotalCarriedCallories
+    public Task<CaloriesValue> TotalCarriedCalloriesTask
         => Task.Run(() => (CaloriesValue)Snacks.Sum(snack => snack.Calories));
 
     public Elf(IList<Snack> snacks)
