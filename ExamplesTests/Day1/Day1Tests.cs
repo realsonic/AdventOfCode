@@ -4,11 +4,6 @@ namespace ExamplesTests.Day1;
 
 public class Day1Tests
 {
-    public Day1Tests()
-    {
-        solution = new Solution(File.ReadLinesAsync(@"Day1\example.input.txt"));
-    }
-
     [Fact]
     public async Task TestPuzzle1Async()
     {
@@ -35,5 +30,5 @@ public class Day1Tests
         Assert.Equal(puzzle2Result, totalCaloriesFromTop3Elves);
     }
 
-    private readonly Solution solution;
+    private readonly Solution solution = new(File.ReadLinesAsync(@"Day1\example.input.txt"));
 }
