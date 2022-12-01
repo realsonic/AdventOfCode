@@ -1,7 +1,7 @@
 ﻿using Day1;
 
 Console.OutputEncoding = System.Text.Encoding.Unicode;
-Console.WriteLine("⭐ Advent of Code 2022. 📅 Day 1.");
+Console.WriteLine("🌟 Advent of Code 2022. 📅 Day 1.");
 
 var solution = new Solution(File.ReadLinesAsync("input.txt"));
 solution.OnSnackCounted += snacksCount => Console.WriteLine($"🔸 Counted {++snacksCount} snacks.");
