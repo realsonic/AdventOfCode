@@ -1,14 +1,14 @@
-﻿using Day1;
+﻿using Day1.Model;
+
+using ExamplesTests.Day1;
 
 Console.OutputEncoding = System.Text.Encoding.Unicode;
 Console.WriteLine("🌟 Advent of Code 2022. 📅 Day 1.");
 
-var solution = new Solution(File.ReadLinesAsync("input.txt"));
-solution.OnSnackCounted += snacksCount => Console.WriteLine($"🔸 Counted {++snacksCount} snacks.");
-solution.OnElfCounted += elvesCount => Console.WriteLine($"🔶🔶 Counted {++elvesCount} elves.");
+var expedition = await Expedition.BuildExpeditionAsync(InputHelpers.GetElvesAsync(@"input.txt"));
 
-int maxCaloriesPerElfFromSolution = await solution.MaxCaloriesPerElf;
-int totalCaloriesFromTop3ElvesFromSolution = await solution.TotalCaloriesFromTop3Elves;
+CaloriesValue maxCaloriesPerElfFromSolution = await expedition.MaxCaloriesPerElfTask;
+CaloriesValue totalCaloriesFromTop3ElvesFromSolution = await expedition.TotalCaloriesFromTop3ElvesTask;
 
 Console.WriteLine(@$"
 ❓ [Puzzle 1] How many total Calories is that Elf carrying?

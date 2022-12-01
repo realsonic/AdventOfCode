@@ -10,4 +10,7 @@ public record CaloriesValue(uint Value) : IComparable<CaloriesValue>
 
     int IComparable<CaloriesValue>.CompareTo(CaloriesValue? other)
         => (int)(this - (other ?? 0));
+
+    public override string? ToString()
+        => $"{Value} cal.";
 }
