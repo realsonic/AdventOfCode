@@ -23,4 +23,7 @@ await foreach (var snackRecord in inputAsyncEnumarable)
 Console.WriteLine($"🔸 Counted {elvesCalories.Count} elves.");
 
 int maxCalories = elvesCalories.Max();
-Console.WriteLine($"\n❇️ Max calories: {maxCalories}.");
+Console.WriteLine($"\n❔ How many total Calories is that Elf carrying? ❇️ {maxCalories}.");
+
+int totalCaloriesFromTop3Elves = elvesCalories.OrderDescending().Take(3).Sum();
+Console.WriteLine($"\n❔ How many Calories are those Elves carrying in total? ❇️ {totalCaloriesFromTop3Elves}");
