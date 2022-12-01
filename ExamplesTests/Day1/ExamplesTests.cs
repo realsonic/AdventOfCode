@@ -1,5 +1,4 @@
 using Day1;
-using Day1.Dtos;
 using Day1.Model;
 
 namespace ExamplesTests.Day1;
@@ -40,7 +39,7 @@ public class ExamplesTests
         //Arrange
         uint puzzle1Result = uint.Parse(await File.ReadAllTextAsync(@"Day1\example.output1.txt"));
         uint puzzle2Result = uint.Parse(await File.ReadAllTextAsync(@"Day1\example.output2.txt"));
-        Expedition expedition = await Expedition.BuildExpeditionAsync(GetElvesAsync());
+        Expedition expedition = await Expedition.BuildExpeditionAsync(InputHelpers.GetElvesAsync(@"Day1\example.input.txt"));
 
         //Act
         CaloriesValue maxCaloriesPerElf = await expedition.MaxCaloriesPerElfTask;
@@ -49,34 +48,5 @@ public class ExamplesTests
         //Assert
         Assert.Equal(puzzle1Result, (uint)maxCaloriesPerElf);
         Assert.Equal(puzzle2Result, (uint)totalCaloriesFromTop3Elves);
-    }
-
-    private static async IAsyncEnumerable<Elf> GetElvesAsync()
-    {
-        List<Snack> snacks = new();
-
-        await foreach (var inputRecord in GetInputRecordsAsync())
-        {
-            if (inputRecord is CaloriesRecord caloriesRecord)
-            {
-                snacks.Add(new Snack(caloriesRecord.Calories));
-            }
-            else if (inputRecord is DelimiterRecord)
-            {
-                yield return new Elf(snacks);
-                snacks.Clear();
-            }
-        }
-
-        if (snacks.Count > 0)
-        {
-            yield return new Elf(snacks);
-        }
-    }
-
-    private static async IAsyncEnumerable<InputRecord> GetInputRecordsAsync()
-    {
-        await foreach (string record in File.ReadLinesAsync(@"Day1\example.input.txt"))
-            yield return InputRecord.BuildFromString(record);
     }
 }
