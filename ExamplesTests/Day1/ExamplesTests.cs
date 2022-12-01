@@ -2,7 +2,7 @@ using Day1;
 
 namespace ExamplesTests.Day1;
 
-public class Day1Tests
+public class ExamplesTests
 {
     [Fact]
     public async Task TestPuzzle1Async()
