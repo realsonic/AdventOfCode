@@ -4,10 +4,10 @@ public class Expedition
 {
     public IReadOnlyList<Elf> Elves { get; }
 
-    public Task<CaloriesValue> MaxCaloriesPerElfTask
+    public Task<Energy> MaxCaloriesPerElfTask
         => GetMaxCaloriesPerElfAsync();
 
-    public Task<CaloriesValue> TotalCaloriesFromTop3ElvesTask
+    public Task<Energy> TotalCaloriesFromTop3ElvesTask
         => GetTotalCaloriesFromTop3ElvesAsync();
 
     public static async Task<Expedition> BuildExpeditionAsync(IAsyncEnumerable<Elf> elves)
@@ -21,18 +21,18 @@ public class Expedition
         Elves = elves.ToList();
     }
 
-    private async Task<CaloriesValue> GetMaxCaloriesPerElfAsync()
+    private async Task<Energy> GetMaxCaloriesPerElfAsync()
         => await GetElvesTotalCarriedCalloriesAsyncEnum()
         .MaxAsync();
 
-    private async Task<CaloriesValue> GetTotalCaloriesFromTop3ElvesAsync()
-        => (CaloriesValue)await GetElvesTotalCarriedCalloriesAsyncEnum()
+    private async Task<Energy> GetTotalCaloriesFromTop3ElvesAsync()
+        => (Energy)await GetElvesTotalCarriedCalloriesAsyncEnum()
         .OrderByDescending(caloriesValue => caloriesValue)
         .Take(3)
         .Select(caloriesValue => (long)caloriesValue)
         .SumAsync();
 
-    private async IAsyncEnumerable<CaloriesValue> GetElvesTotalCarriedCalloriesAsyncEnum()
+    private async IAsyncEnumerable<Energy> GetElvesTotalCarriedCalloriesAsyncEnum()
     {
         await foreach (var elf in Elves.ToAsyncEnumerable())
         {

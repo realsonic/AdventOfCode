@@ -6,8 +6,8 @@ Console.WriteLine("🌟 Advent of Code 2022. 📅 Day 1.");
 
 var expedition = await Expedition.BuildExpeditionAsync(InputHelpers.GetElvesAsync(@"input.txt"));
 
-CaloriesValue maxCaloriesPerElf = await expedition.MaxCaloriesPerElfTask;
-CaloriesValue totalCaloriesFromTop3Elves = await expedition.TotalCaloriesFromTop3ElvesTask;
+Energy maxCaloriesPerElf = await expedition.MaxCaloriesPerElfTask;
+Energy totalCaloriesFromTop3Elves = await expedition.TotalCaloriesFromTop3ElvesTask;
 
 Console.WriteLine(@$"
 ❓ [Puzzle 1] How many total Calories is that Elf carrying?

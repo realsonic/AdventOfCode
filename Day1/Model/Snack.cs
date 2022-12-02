@@ -1,2 +1,2 @@
 ﻿namespace Day1.Model;
-public record Snack(CaloriesValue Calories);
+public record Snack(Energy Calories);
