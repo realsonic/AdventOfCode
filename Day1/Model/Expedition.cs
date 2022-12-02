@@ -34,17 +34,9 @@ public class Expedition
 
     private async IAsyncEnumerable<CaloriesValue> GetElvesTotalCarriedCalloriesAsyncEnum()
     {
-        await foreach (var elf in GetElvesAsyncEnum())
-        {
-            yield return await elf.TotalCarriedCalloriesTask;
-        }
-    }
-
-    private async IAsyncEnumerable<Elf> GetElvesAsyncEnum()
-    {
         await foreach (var elf in Elves.ToAsyncEnumerable())
         {
-            yield return await Task.FromResult(elf);
+            yield return await elf.TotalCarriedCalloriesTask;
         }
     }
 }
