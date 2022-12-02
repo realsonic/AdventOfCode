@@ -28,4 +28,26 @@ public static class MoveEnumExtension
             },
             _ => throw new InvalidOperationException($"Wrong my move {myMove}")
         };
+
+    public static MoveEnum GetLoser(this MoveEnum move)
+        => move switch
+        {
+            MoveEnum.Rock => MoveEnum.Scissors,
+            MoveEnum.Paper => MoveEnum.Rock,
+            MoveEnum.Scissors => MoveEnum.Paper,
+            _ => throw new InvalidOperationException($"Wrong move {move}")
+        };
+
+
+    public static MoveEnum GetDraw(this MoveEnum move)
+        => move;
+
+    public static MoveEnum GetWinner(this MoveEnum move)
+        => move switch
+        {
+            MoveEnum.Rock => MoveEnum.Paper,
+            MoveEnum.Paper => MoveEnum.Scissors,
+            MoveEnum.Scissors => MoveEnum.Rock,
+            _ => throw new InvalidOperationException($"Wrong move {move}")
+        };
 }

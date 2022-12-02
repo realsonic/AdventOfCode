@@ -11,19 +11,43 @@ public class InputHelpers
             yield return new StrategyRecord(
                 OpponentsMove: inputRecord.OpponentsMove switch
                 {
-                    InputRecord.OpponentsMoveEnum.A_Rock => MoveEnum.Rock,
-                    InputRecord.OpponentsMoveEnum.B_Paper => MoveEnum.Paper,
-                    InputRecord.OpponentsMoveEnum.C_Scissors => MoveEnum.Scissors,
+                    OpponentsMoveEnum.A => MoveEnum.Rock,
+                    OpponentsMoveEnum.B => MoveEnum.Paper,
+                    OpponentsMoveEnum.C => MoveEnum.Scissors,
                     _ => throw new InvalidOperationException($"Wrong input record's opponent's move {inputRecord.OpponentsMove} in record: {inputRecord}.")
                 },
-                MyMove: inputRecord.MyMove switch
+                MyMove: inputRecord.MyAnswer switch
                 {
-                    InputRecord.MyMoveEnum.X_Rock => MoveEnum.Rock,
-                    InputRecord.MyMoveEnum.Y_Paper => MoveEnum.Paper,
-                    InputRecord.MyMoveEnum.Z_Scissors => MoveEnum.Scissors,
-                    _ => throw new InvalidOperationException($"Wrong input record's my move {inputRecord.MyMove} in record: {inputRecord}.")
+                    MyAnswerEnum.X => MoveEnum.Rock,
+                    MyAnswerEnum.Y => MoveEnum.Paper,
+                    MyAnswerEnum.Z => MoveEnum.Scissors,
+                    _ => throw new InvalidOperationException($"Wrong input record's my answer {inputRecord.MyAnswer} in record: {inputRecord}.")
                 }
             );
+    }
+
+    public static async IAsyncEnumerable<StrategyRecord> GetCorrectStrategyRecordsAsync(string inputFilePath)
+    {
+        await foreach (InputRecord inputRecord in GetInputRecordsAsync(inputFilePath))
+        {
+            MoveEnum opponentsMove = inputRecord.OpponentsMove switch
+            {
+                OpponentsMoveEnum.A => MoveEnum.Rock,
+                OpponentsMoveEnum.B => MoveEnum.Paper,
+                OpponentsMoveEnum.C => MoveEnum.Scissors,
+                _ => throw new InvalidOperationException($"Wrong input record's opponent's move {inputRecord.OpponentsMove} in record: {inputRecord}.")
+            };
+
+            MoveEnum myMove = inputRecord.MyAnswer switch
+            {
+                MyAnswerEnum.X => opponentsMove.GetLoser(),
+                MyAnswerEnum.Y => opponentsMove.GetDraw(),
+                MyAnswerEnum.Z => opponentsMove.GetWinner(),
+                _ => throw new InvalidOperationException($"Wrong input record's my answer {inputRecord.MyAnswer} in record: {inputRecord}.")
+            };
+
+            yield return new StrategyRecord(opponentsMove, myMove);
+        }
     }
 
     private static async IAsyncEnumerable<InputRecord> GetInputRecordsAsync(string inputFilePath)
