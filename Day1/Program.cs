@@ -1,6 +1,5 @@
-﻿using Day1.Model;
-
-using ExamplesTests.Day1;
+﻿using Day1;
+using Day1.Model;
 
 Console.OutputEncoding = System.Text.Encoding.Unicode;
 Console.WriteLine("🌟 Advent of Code 2022. 📅 Day 1.");

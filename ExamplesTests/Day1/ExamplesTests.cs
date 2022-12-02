@@ -1,3 +1,4 @@
+using Day1;
 using Day1.Model;
 
 namespace ExamplesTests.Day1;

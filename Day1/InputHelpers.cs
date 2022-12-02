@@ -1,7 +1,7 @@
 ﻿using Day1.Dtos;
 using Day1.Model;
 
-namespace ExamplesTests.Day1;
+namespace Day1;
 
 public static class InputHelpers
 {
