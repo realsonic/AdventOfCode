@@ -2,8 +2,7 @@
 
 public record Rucksack(Compartment FirstCompartment, Compartment SecondCompartment)
 {
-    public async Task<Item> GetDoubleItemAsync()
-        => await Task.Run(() =>
-            FirstCompartment.Items.Intersect(SecondCompartment.Items).Single()
-        );
+    public Item DoubleItem => FirstCompartment.Items
+        .Intersect(SecondCompartment.Items)
+        .Single();
 }
