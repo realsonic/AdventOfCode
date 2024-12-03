@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day1", "Day1\Day1.csproj", "{F7ECCF04-2E69-477B-8B01-3D89D7AE8A84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day1", "2022\Day1\Day1.csproj", "{F7ECCF04-2E69-477B-8B01-3D89D7AE8A84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamplesTests", "ExamplesTests\ExamplesTests.csproj", "{35EDBD42-8A1F-445B-8CFB-D3BB30A8E629}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamplesTests", "2022\ExamplesTests\ExamplesTests.csproj", "{35EDBD42-8A1F-445B-8CFB-D3BB30A8E629}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2", "Day2\Day2.csproj", "{4464AFC2-75FE-4064-B022-0F0315925918}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day2", "2022\Day2\Day2.csproj", "{4464AFC2-75FE-4064-B022-0F0315925918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day3", "Day3\Day3.csproj", "{B3F53AA2-8F60-49E5-8577-74AACB89BB3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day3", "2022\Day3\Day3.csproj", "{B3F53AA2-8F60-49E5-8577-74AACB89BB3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2022", "2022", "{A8B9915E-07FE-4EFE-BA6B-FE0C91A302E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F7ECCF04-2E69-477B-8B01-3D89D7AE8A84} = {A8B9915E-07FE-4EFE-BA6B-FE0C91A302E7}
+		{35EDBD42-8A1F-445B-8CFB-D3BB30A8E629} = {A8B9915E-07FE-4EFE-BA6B-FE0C91A302E7}
+		{4464AFC2-75FE-4064-B022-0F0315925918} = {A8B9915E-07FE-4EFE-BA6B-FE0C91A302E7}
+		{B3F53AA2-8F60-49E5-8577-74AACB89BB3B} = {A8B9915E-07FE-4EFE-BA6B-FE0C91A302E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53AEEB1A-BCC6-472B-9910-75C5336806EF}
