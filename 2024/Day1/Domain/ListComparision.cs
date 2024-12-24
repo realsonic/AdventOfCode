@@ -9,8 +9,8 @@ public record ListComparision(LocationList LeftList, LocationList RightList)
         {
             long totalDistance = 0;
 
-            List<LocationId> leftListRemainIds = LeftList;
-            List<LocationId> rightListRemainIds = RightList;
+            List<LocationId> leftListRemainIds = new(LeftList);
+            List<LocationId> rightListRemainIds = new(RightList);
 
             while (leftListRemainIds.Count > 0 && rightListRemainIds.Count > 0)
             {
@@ -25,6 +25,21 @@ public record ListComparision(LocationList LeftList, LocationList RightList)
             }
 
             return totalDistance;
+        }
+    }
+
+    public long SimilarityScore
+    {
+        get
+        {
+            long similarityScore = 0;
+
+            foreach (LocationId leftLocationId in LeftList)
+            {
+                similarityScore += leftLocationId * RightList.Count(locationId => locationId == leftLocationId);
+            }
+
+            return similarityScore;
         }
     }
 }
