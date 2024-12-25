@@ -1,9 +1,8 @@
-using Day1;
 using Day1.Domain;
 
 using FluentAssertions;
 
-namespace ExampleTests.Day1;
+namespace Day1;
 
 public class ExampleTests
 {

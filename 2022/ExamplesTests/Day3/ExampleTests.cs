@@ -1,11 +1,9 @@
-﻿using Day3;
-
-namespace ExamplesTests.Day3;
+﻿namespace Day3;
 
 public class ExampleTests
 {
     [Fact]
-    public async Task TestExample1Async()
+    public async Task TestExample1()
     {
         //Arrange
         var example1Result = uint.Parse(await File.ReadAllTextAsync(@"Day3\example.output1.txt"));
@@ -19,7 +17,7 @@ public class ExampleTests
     }
 
     [Fact]
-    public async Task TestExample2Async()
+    public async Task TestExample2()
     {
         //Arrange
         var example2Result = uint.Parse(await File.ReadAllTextAsync(@"Day3\example.output2.txt"));
