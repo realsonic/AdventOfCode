@@ -1,4 +1,4 @@
-﻿using Day1.Domain.ValueTypes;
+﻿using Day1.Domain.ValueObjects;
 
 namespace Day1.Domain;
 public record ListComparision(LocationList LeftList, LocationList RightList)

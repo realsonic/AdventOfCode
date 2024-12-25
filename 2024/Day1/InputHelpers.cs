@@ -1,5 +1,5 @@
 ﻿using Day1.Domain;
-using Day1.Domain.ValueTypes;
+using Day1.Domain.ValueObjects;
 
 namespace Day1;
 public static class InputHelpers
