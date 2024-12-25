@@ -1,4 +1,4 @@
-﻿namespace Day1.Domain.ValueTypes;
+﻿namespace Day1.Domain.ValueObjects;
 public record LocationId(uint Number) : IComparable<LocationId>
 {
     int IComparable<LocationId>.CompareTo(LocationId? other)
