@@ -1,4 +1,6 @@
-﻿namespace Day3;
+﻿using Day3;
+
+namespace AoC2022.Tests.Day3;
 
 public class ExampleTests
 {

@@ -3,7 +3,7 @@ using Day2.Domain;
 
 using FluentAssertions;
 
-namespace AoC2024.ExampleTests.Day2;
+namespace AoC2024.Tests.Day2;
 
 public class ExampleTests
 {
@@ -44,7 +44,7 @@ public class ExampleTests
                 safeReports++;
             }
         }
-        
+
         // Assure
         safeReports.Should().Be(example1Result);
     }

@@ -1,6 +1,7 @@
-﻿using Day2.Model;
+﻿using Day2;
+using Day2.Model;
 
-namespace Day2;
+namespace AoC2022.Tests.Day2;
 
 public class ExamplesTests
 {
