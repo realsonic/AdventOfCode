@@ -1,8 +1,9 @@
+using Day1;
 using Day1.Domain;
 
 using FluentAssertions;
 
-namespace Day1;
+namespace AoC2024.ExampleTests.Day1;
 
 public class ExampleTests
 {
