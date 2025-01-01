@@ -3,7 +3,7 @@ using Day1.Domain;
 
 using FluentAssertions;
 
-namespace AoC2024.ExampleTests.Day1;
+namespace AoC2024.Tests.Day1;
 
 public class ExampleTests
 {
