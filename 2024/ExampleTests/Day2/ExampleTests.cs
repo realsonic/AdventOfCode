@@ -27,4 +27,25 @@ public class ExampleTests
         // Assure
         safeReports.Should().Be(example1Result);
     }
+
+    [Fact]
+    public async Task TestExample2()
+    {
+        // Arrange
+        int example1Result = int.Parse(await File.ReadAllTextAsync(@"Day2\example.output2.txt"));
+        IAsyncEnumerable<Report> reportsAsync = InputHelpers.LoadReportsFromFile(@"Day2\example.input.txt");
+
+        // Act
+        int safeReports = 0;
+        await foreach (Report report in reportsAsync)
+        {
+            if (report.IsToleratedSafe)
+            {
+                safeReports++;
+            }
+        }
+        
+        // Assure
+        safeReports.Should().Be(example1Result);
+    }
 }
