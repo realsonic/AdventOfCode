@@ -3,11 +3,11 @@
 using System.Text.RegularExpressions;
 
 namespace Day3.Application;
-public partial class MulReader(string input)
+public class MulReader(string input)
 {
     public IEnumerable<Mul> ReadMuls()
     {
-        foreach (Match mulMatch in MulRegex().Matches(input))
+        foreach (Match mulMatch in CommandRegexes.MulRegex().Matches(input))
         {
             Group firstNumberGroup = mulMatch.Groups["first"];
             if (!int.TryParse(firstNumberGroup.Value, out int firstNumber))
@@ -20,7 +20,4 @@ public partial class MulReader(string input)
             yield return new Mul(firstNumber, secondNumber);
         }
     }
-
-    [GeneratedRegex(@"mul\((?'first'\d{1,3}),(?'second'\d{1,3})\)")]
-    private static partial Regex MulRegex();
 }
