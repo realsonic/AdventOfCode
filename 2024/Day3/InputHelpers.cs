@@ -4,16 +4,16 @@ using Day3.Domain;
 namespace Day3;
 public class InputHelpers
 {
-    public static Memory LoadMemoryFromFile(string inputFilePath) => new(LoadMulsFromFile(inputFilePath).ToBlockingEnumerable().ToList());
+    public static Memory LoadMemoryFromFile(string inputFilePath) => new(LoadCommandsFromFile(inputFilePath).ToBlockingEnumerable().ToList());
 
-    public static async IAsyncEnumerable<Command> LoadMulsFromFile(string inputFilePath)
+    public static async IAsyncEnumerable<Command> LoadCommandsFromFile(string inputFilePath)
     {
         string input = await File.ReadAllTextAsync(inputFilePath);
 
-        CommandReader mulReader = new(input);
-        foreach (Command mul in mulReader.ReadCommands())
+        CommandReader commandReader = new(input);
+        foreach (Command command in commandReader.ReadCommands())
         {
-            yield return mul;
+            yield return command;
         }
     }
 }

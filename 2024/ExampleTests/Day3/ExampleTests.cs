@@ -6,7 +6,7 @@ using FluentAssertions;
 namespace AoC2024.Tests.Day3;
 public class ExampleTests
 {
-    [Fact]
+    [Fact(DisplayName = "First example succeeds")]
     public async Task TestExample1()
     {
         // Arrange
@@ -20,7 +20,7 @@ public class ExampleTests
         summary.Should().Be(example1Result);
     }
     
-    [Fact]
+    [Fact(DisplayName = "Second example succeeds")]
     public async Task TestExample2()
     {
         // Arrange
