@@ -9,4 +9,6 @@ Memory memory = InputHelpers.LoadMemoryFromFile(@"input.txt");
 Console.WriteLine(@$"
 ❓ [Puzzle 1] What do you get if you add up all of the results of the multiplications?
     👉 {memory.Summary}
+❓ [Puzzle 2] What do you get if you add up all of the results of just the enabled multiplications?
+    👉 {memory.EnabledSummary}
 ");
